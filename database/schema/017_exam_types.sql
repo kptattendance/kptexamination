@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS exam_types (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  exam_type VARCHAR(50) UNIQUE,
+  description VARCHAR(255)
+);

@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS result_statuses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  status_name VARCHAR(50) UNIQUE
+);
