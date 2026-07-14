@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS academic_years (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    academic_year VARCHAR(20) UNIQUE,
+
+    start_date DATE,
+
+    end_date DATE,
+
+    current_year BOOLEAN DEFAULT FALSE,
+
+    is_active BOOLEAN DEFAULT TRUE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+
+);

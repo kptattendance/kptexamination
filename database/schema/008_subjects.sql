@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS subjects (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  department_id INT NOT NULL,
+  scheme_id INT NOT NULL,
+  semester_id INT NOT NULL,
+  subject_type_id INT NOT NULL,
+  subject_code VARCHAR(30) NOT NULL,
+  subject_name VARCHAR(200) NOT NULL,
+  credits DECIMAL(4, 2),
+  theory_hours INT DEFAULT 0,
+  practical_hours INT DEFAULT 0,
+  total_hours INT GENERATED ALWAYS AS (theory_hours + practical_hours) STORED,
+  is_elective BOOLEAN DEFAULT FALSE,
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (department_id) REFERENCES departments(id),
+  FOREIGN KEY (scheme_id) REFERENCES schemes(id),
+  FOREIGN KEY (semester_id) REFERENCES semesters(id),
+  FOREIGN KEY (subject_type_id) REFERENCES subject_types(id)
+);
